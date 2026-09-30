@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Đặt xe và ước tính chi phí với SmartMove.">
+    <title>Đặt Xe - SmartMove</title>
+    <link rel="stylesheet" href="cuoiky.css">
+    <script src="cuoiky.js" defer></script>
+</head>
+<body>
+    <header>
+        <a class="logo" href="cuoiky.html">Smart<span>Move</span></a>
+        <nav aria-label="Điều hướng chính">
+            <ul class="menu">
+                <li><a href="cuoiky.html">Trang Chủ</a></li>
+                <li><a href="cuoiky3.html" class="active" aria-current="page">Đặt Xe</a></li>
+                <li><a href="cuoiky1.html">Thành Viên</a></li>
+                <li><a href="cuoiky2.html">Liên Hệ</a></li>
+                <li><button id="openLoginModal" class="login-nav-button" type="button">Đăng nhập</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-content bg-gray">
+        <section class="booking-container" aria-labelledby="bookingTitle">
+            <h1 id="bookingTitle">Đặt Xe &amp; Ước Tính Chi Phí</h1>
+
+            <form id="routeBookingForm" class="route-form">
+                <div class="form-group">
+                    <label for="pickup">Điểm đi</label>
+                    <input id="pickup" name="pickup" type="text" placeholder="Nhập điểm đi" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dropoff">Điểm đến</label>
+                    <input id="dropoff" name="dropoff" type="text" placeholder="Nhập điểm đến" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Dịch vụ</label>
+                    <select id="service" name="service">
+                        <option value="Xe Buýt Điện">Xe Buýt Điện</option>
+                        <option value="Taxi Công Nghệ">Taxi Công Nghệ</option>
+                        <option value="Xe Đạp Chia Sẻ">Xe Đạp Chia Sẻ</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="distance">Quãng đường (km)</label>
+                    <input id="distance" name="distance" type="number" min="0.1" step="0.1"
+                           placeholder="Ví dụ: 15" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicleType">Loại phương tiện</label>
+                    <select id="vehicleType" name="vehicleType" required>
+                        <option value="taxi">Taxi Công Nghệ</option>
+                        <option value="bike">Xe Máy / Xe Đạp</option>
+                        <option value="bus">Xe Buýt Điện</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="seatType">Số chỗ</label>
+                    <select id="seatType" name="seatType">
+                        <option value="4">4 chỗ</option>
+                        <option value="7">7 chỗ</option>
+                        <option value="16">16 chỗ</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-booking">Tính chi phí</button>
+            </form>
+
+            <div id="bookingResult" class="booking-result" aria-live="polite"></div>
+            <p class="price-note">Chi phí là mức ước tính theo quãng đường và phương tiện.</p>
+        </section>
+
+        <div id="loginModal" class="modal" role="dialog" aria-modal="true"
+             aria-labelledby="loginTitle" aria-hidden="true">
+            <div class="modal-content login-form">
+                <button id="closeLoginModal" class="close-btn" type="button" aria-label="Đóng">&times;</button>
+                <h2 id="loginTitle">Đăng nhập tài khoản</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input id="loginEmail" name="email" type="email"
+                               autocomplete="email" placeholder="name@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Mật khẩu</label>
+                        <input id="loginPassword" name="password" type="password"
+                               autocomplete="current-password" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <button class="btn-submit" type="submit">Đăng nhập</button>
+                    <p class="login-note">Giao diện minh họa, chưa kết nối xác thực tài khoản.</p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Bài Tập Lớn Thiết Kế Web. Nhóm Di Chuyển Thông Minh.</p>
+    </footer>
+</body>
+</html>
