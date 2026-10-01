@@ -382,4 +382,28 @@ function setupAnimations() {
         ease: 'back.out(1.2)',
         clearProps: 'all'
     });
+
+    // Hiệu ứng cho Form liên hệ và Form đặt xe (form-wrapper, booking-container)
+    gsap.from('.form-wrapper, .booking-container', {
+        y: 40,
+        autoAlpha: 0,
+        duration: 1,
+        ease: 'back.out(1.2)',
+        clearProps: 'all',
+        delay: 0.1
+    });
+
+    // Hiệu ứng cho trang Thành viên (Team cards)
+    gsap.from('.team-card', {
+        scrollTrigger: {
+            trigger: '.flex-container',
+            start: 'top 85%'
+        },
+        y: 50,
+        autoAlpha: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power3.out',
+        clearProps: 'all'
+    });
 }
