@@ -190,7 +190,7 @@ select {
     background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .hero p {
@@ -199,7 +199,7 @@ select {
     color: rgba(255, 255, 255, 0.85);
     font-size: 1.2rem;
     line-height: 1.6;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Nút */
@@ -234,7 +234,7 @@ select {
     left: -100%;
     width: 50%;
     height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
     transform: skewX(-25deg);
     transition: all 0.75s ease;
 }
@@ -256,13 +256,13 @@ select {
     border-radius: 999px;
     color: var(--blue-dark);
     background: #fff;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .hero-button:hover {
     color: var(--blue);
     background: #f8fafc;
-    box-shadow: 0 15px 35px rgba(255,255,255,0.3);
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3);
 }
 
 /* Dịch vụ */
@@ -383,7 +383,7 @@ select {
     border: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 0.8rem;
     font-weight: 700;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .card-body {
@@ -799,6 +799,7 @@ select {
     display: none;
     border: 1px solid #cce4f7;
 }
+
 .booking-result:not(:empty) {
     display: block;
 }
@@ -931,6 +932,7 @@ select {
     from {
         box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
     }
+
     to {
         box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     }
