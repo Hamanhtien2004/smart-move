@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupRouteBookingForm();
     setupContactForm();
     fillBookingFromUrl();
+    setupAnimations();
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
@@ -343,4 +344,42 @@ function closeModal(id) {
 
     modal.style.display = 'none';
     modal.setAttribute('aria-hidden', 'true');
+}
+
+/* GSAP Animations */
+function setupAnimations() {
+    if (typeof gsap === 'undefined') return;
+
+    // Chỉ đăng ký plugin nếu tồn tại
+    if (typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+    }
+
+    // Hiệu ứng lần lượt hiện ra cho các thẻ dịch vụ
+    gsap.from('.card', {
+        scrollTrigger: {
+            trigger: '.services',
+            start: 'top 80%'
+        },
+        y: 60,
+        autoAlpha: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power3.out',
+        clearProps: 'all'
+    });
+
+    // Hiệu ứng nổi bồng cho bảng đặt xe
+    gsap.from('.booking-panel', {
+        scrollTrigger: {
+            trigger: '.booking-section',
+            start: 'top 85%'
+        },
+        scale: 0.92,
+        y: 40,
+        autoAlpha: 0,
+        duration: 1,
+        ease: 'back.out(1.2)',
+        clearProps: 'all'
+    });
 }

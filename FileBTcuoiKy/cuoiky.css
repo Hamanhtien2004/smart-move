@@ -1,11 +1,12 @@
 :root {
-    --navy: #20364e;
-    --blue: #268bd0;
-    --blue-dark: #176da9;
-    --text: #293b4e;
-    --muted: #66798d;
-    --border: #dce5ef;
-    --shadow: 0 18px 45px rgba(35, 61, 91, 0.14);
+    --navy: #0f172a;
+    --blue: #2563eb;
+    --blue-dark: #1d4ed8;
+    --text: #334155;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+    --shadow-glow: 0 10px 30px rgba(37, 99, 235, 0.3);
 }
 
 * {
@@ -22,8 +23,8 @@ body {
     display: flex;
     flex-direction: column;
     color: var(--text);
-    background: #f6f9fd;
-    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f8fafc;
+    font-family: 'Inter', "Segoe UI", Arial, sans-serif;
 }
 
 main {
@@ -38,15 +39,20 @@ select {
 
 /* Thanh điều hướng */
 .site-header {
-    position: relative;
-    z-index: 5;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
     padding: 12px clamp(18px, 5vw, 76px);
-    background: #263d53;
-    box-shadow: 0 5px 20px rgba(18, 36, 54, 0.15);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
 }
 
 .logo {
@@ -73,27 +79,49 @@ select {
 
 .menu a,
 .login-nav-button {
+    position: relative;
     display: inline-flex;
     min-height: 42px;
     align-items: center;
     justify-content: center;
-    padding: 9px 14px;
+    padding: 9px 18px;
     border: 0;
-    border-radius: 7px;
-    color: #eaf1f7;
+    border-radius: 999px;
+    color: #e2e8f0;
     background: transparent;
-    font-weight: 650;
+    font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.menu a::before,
+.login-nav-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--blue);
+    border-radius: 999px;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.menu a:hover::before,
+.menu a.active::before,
+.login-nav-button:hover::before {
+    transform: scale(1);
+    opacity: 1;
 }
 
 .menu a:hover,
 .menu a.active,
 .login-nav-button:hover {
     color: #fff;
-    background: var(--blue);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
 }
 
 /* Hero dùng video nền */
@@ -135,32 +163,43 @@ select {
     position: relative;
     z-index: 1;
     max-width: 850px;
-    animation: appearUp 700ms ease both;
+    animation: appearUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hero-tag {
     display: inline-block;
-    padding: 6px 12px;
-    border-radius: 4px;
+    padding: 8px 16px;
+    border-radius: 999px;
     color: #fff;
-    background: rgba(0, 0, 0, 0.4);
-    font-size: 0.82rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.85rem;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: pulseGlow 2s infinite alternate;
 }
 
 .hero h1 {
     margin: 22px 0 15px;
-    font-size: clamp(2.3rem, 6vw, 4.5rem);
-    line-height: 1.08;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.1;
+    font-weight: 800;
     letter-spacing: -0.04em;
+    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .hero p {
     max-width: 650px;
-    margin: 0 auto 28px;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-    line-height: 1.7;
+    margin: 0 auto 32px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* Nút */
@@ -168,37 +207,62 @@ select {
 .btn-submit,
 .modal-booking-link {
     display: inline-flex;
-    min-height: 48px;
+    min-height: 52px;
     align-items: center;
     justify-content: center;
-    padding: 12px 23px;
+    padding: 14px 28px;
     border: 0;
-    border-radius: 8px;
+    border-radius: 12px;
     color: #fff;
-    background: var(--blue);
-    font-weight: 750;
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    font-weight: 700;
+    font-size: 1.05rem;
     text-decoration: none;
     cursor: pointer;
-    transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after,
+.btn-submit::after,
+.modal-booking-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: all 0.75s ease;
+}
+
+.btn:hover::after,
+.btn-submit:hover::after,
+.modal-booking-link:hover::after {
+    left: 150%;
 }
 
 .btn:hover,
 .btn-submit:hover,
 .modal-booking-link:hover {
-    transform: translateY(-2px);
-    background: var(--blue-dark);
-    box-shadow: 0 9px 22px rgba(39, 150, 220, 0.25);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--shadow-glow);
 }
 
 .hero-button {
     border-radius: 999px;
-    color: #205778;
+    color: var(--blue-dark);
     background: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .hero-button:hover {
-    color: #17476a;
-    background: #e9f6ff;
+    color: var(--blue);
+    background: #f8fafc;
+    box-shadow: 0 15px 35px rgba(255,255,255,0.3);
 }
 
 /* Dịch vụ */
@@ -243,23 +307,27 @@ select {
 }
 
 .card {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    height: 100%;
     overflow: hidden;
     padding: 0;
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    border-radius: 16px;
-    background: #fff;
-    box-shadow: 0 12px 28px rgba(35, 61, 91, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     text-align: left;
     cursor: pointer;
-    transition: transform 280ms ease, box-shadow 280ms ease;
+    transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1), border-color 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card:hover,
 .card:focus-visible {
-    transform: translateY(-9px);
-    box-shadow: 0 22px 42px rgba(35, 61, 91, 0.23);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 25px 50px rgba(37, 99, 235, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
 }
 
 .card:focus-visible {
@@ -270,17 +338,23 @@ select {
 .card-image-wrap {
     position: relative;
     display: block;
-    height: 235px;
+    height: 250px;
+    flex-shrink: 0;
     overflow: hidden;
     background: #dce7f2;
 }
 
 .card-image-wrap::after {
     position: absolute;
-    inset: 48% 0 0;
-    background: linear-gradient(transparent, rgba(15, 32, 49, 0.25));
+    inset: 30% 0 0;
+    background: linear-gradient(transparent, rgba(15, 23, 42, 0.6));
     content: "";
     pointer-events: none;
+    transition: opacity 400ms ease;
+}
+
+.card:hover .card-image-wrap::after {
+    opacity: 0.8;
 }
 
 .card-image-wrap img {
@@ -288,29 +362,34 @@ select {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 600ms cubic-bezier(0.2, 0.75, 0.25, 1);
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card:hover .card-image-wrap img,
 .card:focus-visible .card-image-wrap img {
-    transform: scale(1.075);
+    transform: scale(1.1) rotate(1deg);
 }
 
 .card-badge {
     position: absolute;
     z-index: 1;
-    top: 14px;
-    left: 14px;
-    padding: 5px 10px;
-    border-radius: 4px;
+    top: 16px;
+    left: 16px;
+    padding: 6px 12px;
+    border-radius: 999px;
     color: #fff;
-    background: var(--navy);
-    font-size: 0.77rem;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem;
     font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .card-body {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     padding: 20px 22px 22px;
 }
 
@@ -331,7 +410,8 @@ select {
 .card-more {
     display: flex;
     justify-content: space-between;
-    margin-top: 18px;
+    margin-top: auto;
+    padding-top: 18px;
     color: #287fbd;
     font-size: 0.9rem;
     font-weight: 750;
@@ -346,11 +426,17 @@ select {
 .booking-panel {
     max-width: 1000px;
     margin: 0 auto;
-    padding: clamp(24px, 5vw, 48px);
-    border: 1px solid #e2eaf3;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.96);
-    box-shadow: var(--shadow);
+    padding: clamp(32px, 5vw, 56px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.booking-panel:hover {
+    transform: translateY(-5px);
 }
 
 .booking-panel h2 {
@@ -387,19 +473,23 @@ select {
 .field select,
 .form-group input {
     width: 100%;
-    min-height: 48px;
-    padding: 11px 13px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    min-height: 52px;
+    padding: 12px 16px;
+    border: 2px solid transparent;
+    border-radius: 12px;
     color: var(--text);
-    background: #fff;
+    background: #f1f5f9;
+    transition: all 0.3s ease;
+    font-size: 1rem;
 }
 
 .field input:focus,
 .field select:focus,
 .form-group input:focus {
-    outline: 3px solid rgba(39, 150, 220, 0.17);
+    background: #fff;
     border-color: var(--blue);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
 }
 
 .btn-primary {
@@ -816,7 +906,7 @@ select {
 @keyframes appearUp {
     from {
         opacity: 0;
-        transform: translateY(18px);
+        transform: translateY(30px);
     }
 
     to {
@@ -828,12 +918,21 @@ select {
 @keyframes modalEnter {
     from {
         opacity: 0;
-        transform: translateY(12px) scale(0.98);
+        transform: translateY(20px) scale(0.95) rotate(-1deg);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1) rotate(0);
+    }
+}
+
+@keyframes pulseGlow {
+    from {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     }
 }
 

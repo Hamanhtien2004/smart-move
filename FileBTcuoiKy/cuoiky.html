@@ -6,6 +6,8 @@
     <meta name="description" content="SmartMove - giải pháp di chuyển xanh, thông minh và tiện lợi.">
     <title>Trang Chủ - SmartMove</title>
     <link rel="stylesheet" href="cuoiky.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     <script src="cuoiky.js" defer></script>
 </head>
 <body>
@@ -44,7 +46,7 @@
                 <p class="section-intro">Bấm vào phương tiện để xem thông tin chi tiết.</p>
 
                 <div class="grid-container">
-                    <button class="card" type="button" data-vehicle="vinbus">
+                    <div class="card" tabindex="0" role="button" data-vehicle="vinbus">
                         <span class="card-image-wrap">
                             <img src="images/vinbus.jpg" alt="Xe buýt điện VinBus" loading="lazy">
                             <span class="card-badge">Di chuyển xanh</span>
@@ -54,9 +56,9 @@
                             <span class="card-description">Phương tiện công cộng hướng tới giao thông xanh.</span>
                             <span class="card-more">Xem thông tin <span aria-hidden="true">↗</span></span>
                         </span>
-                    </button>
+                    </div>
 
-                    <button class="card" type="button" data-vehicle="lachong">
+                    <div class="card" tabindex="0" role="button" data-vehicle="lachong">
                         <span class="card-image-wrap">
                             <img src="images/lac-hong.jpg" alt="Ô tô VinFast Lạc Hồng" loading="lazy">
                             <span class="card-badge">Cao cấp</span>
@@ -66,9 +68,9 @@
                             <span class="card-description">Dòng xe cao cấp mang thương hiệu VinFast.</span>
                             <span class="card-more">Xem thông tin <span aria-hidden="true">↗</span></span>
                         </span>
-                    </button>
+                    </div>
 
-                    <button class="card" type="button" data-vehicle="ventos">
+                    <div class="card" tabindex="0" role="button" data-vehicle="ventos">
                         <span class="card-image-wrap">
                             <img src="images/vento-s.jpg" alt="Xe máy điện VinFast Vento S" loading="lazy">
                             <span class="card-badge">Linh hoạt</span>
@@ -78,7 +80,7 @@
                             <span class="card-description">Linh hoạt cho những chuyến đi trong thành phố.</span>
                             <span class="card-more">Xem thông tin <span aria-hidden="true">↗</span></span>
                         </span>
-                    </button>
+                    </div>
                 </div>
             </div>
         </section>
