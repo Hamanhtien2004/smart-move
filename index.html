@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SmartMove - giải pháp di chuyển xanh, thông minh và tiện lợi.">
+    <title>Trang Chủ - SmartMove</title>
+    <link rel="stylesheet" href="cuoiky.css">
+    <script src="cuoiky.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">Smart<span>Move</span></a>
+
+        <nav aria-label="Điều hướng chính">
+            <ul class="menu">
+                <li><a href="index.html" class="active" aria-current="page">Trang Chủ</a></li>
+                <li><a href="cuoiky3.html">Đặt Xe</a></li>
+                <li><a href="cuoiky1.html">Thành Viên</a></li>
+                <li><a href="cuoiky2.html">Liên Hệ</a></li>
+                <li><button id="openLoginModal" class="login-nav-button" type="button">Đăng nhập</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+                <section class="hero">
+            <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+                <source src="videos/smart-traffic.mp4" type="video/mp4">
+            </video>
+        
+            <div class="hero-content">
+                <span class="hero-tag">Di chuyển xanh · Tương lai thông minh</span>
+                <h1>Khám phá hành trình mới cùng SmartMove</h1>
+                <p>Lựa chọn phương tiện phù hợp để chuyến đi tiện lợi, thoải mái và an toàn hơn.</p>
+                <a class="btn hero-button" href="#booking">Trải nghiệm ngay</a>
+            </div>
+        </section>
+
+        <section class="services" aria-labelledby="servicesHeading">
+            <div class="section-inner">
+                <p class="eyebrow">Lựa chọn hành trình</p>
+                <h2 id="servicesHeading" class="section-title">Dịch Vụ Của Chúng Tôi</h2>
+                <p class="section-intro">Bấm vào phương tiện để xem thông tin chi tiết.</p>
+
+                <div class="grid-container">
+                    <button class="card" type="button" data-vehicle="vinbus">
+                        <span class="card-image-wrap">
+                            <img src="https://static-cms-prod.vinfastauto.com/xe-buyt-dien-vinfast-1_1641283467.jpg"
+                                 alt="Xe buýt điện VinFast VinBus" loading="lazy">
+                            <span class="card-badge">Di chuyển xanh</span>
+                        </span>
+                        <span class="card-body">
+                            <span class="card-title">Xe Buýt Điện VinBus</span>
+                            <span class="card-description">Xe buýt điện công cộng, pin 281 kWh và tầm hoạt động công bố đến 260 km.</span>
+                            <span class="card-more">Xem thông tin <span aria-hidden="true">↗</span></span>
+                        </span>
+                    </button>
+
+                    <button class="card" type="button" data-vehicle="lachong">
+                        <span class="card-image-wrap">
+                            <img src="https://static-cms-prod.vinfastauto.com/lac-hong-900-lx-3.jpeg"
+                                 alt="SUV điện VinFast Lạc Hồng 900 LX" loading="lazy">
+                            <span class="card-badge">Cao cấp</span>
+                        </span>
+                        <span class="card-body">
+                            <span class="card-title">Lạc Hồng 900 LX</span>
+                            <span class="card-description">SUV điện cao cấp phát triển từ nền tảng VF 9, có bản tiêu chuẩn và chống đạn.</span>
+                            <span class="card-more">Xem thông tin <span aria-hidden="true">↗</span></span>
+                        </span>
+                    </button>
+
+                    <button class="card" type="button" data-vehicle="ventos">
+                        <span class="card-image-wrap">
+                            <img src="https://shop.vinfastauto.com/on/demandware.static/-/Sites-app_vinfast_vn-Library/default/dwecbf0312/images/PDP-XMD/ventos/img-banner-info-sp.webp"
+                                 alt="Xe máy điện VinFast Vento S" loading="lazy">
+                            <span class="card-badge">Linh hoạt</span>
+                        </span>
+                        <span class="card-body">
+                            <span class="card-title">Xe Máy Điện Vento S</span>
+                            <span class="card-description">Động cơ 5.200 W, pin LFP và tầm hoạt động công bố đến 160 km.</span>
+                            <span class="card-more">Xem thông tin <span aria-hidden="true">↗</span></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="booking-section" aria-labelledby="bookingHeading">
+            <div class="booking-panel">
+                <p class="eyebrow">Bắt đầu hành trình</p>
+                <h2 id="bookingHeading">Bạn muốn đi đâu?</h2>
+                <p class="booking-intro">Nhập điểm đi và điểm đến để tìm chuyến phù hợp.</p>
+
+                <form id="bookingForm" class="booking-form">
+                    <div class="field">
+                        <label for="pickup">Điểm đi</label>
+                        <input id="pickup" name="pickup" type="text" placeholder="Ví dụ: Hồ Gươm" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="dropoff">Điểm đến</label>
+                        <input id="dropoff" name="dropoff" type="text" placeholder="Ví dụ: Hồ Tây" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="service">Dịch vụ</label>
+                        <select id="service" name="service" required>
+                            <option value="bus">Xe buýt điện VinBus</option>
+                            <option value="car">SUV điện Lạc Hồng 900 LX</option>
+                            <option value="bike">Xe máy điện VinFast Vento S</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Tìm chuyến đi</button>
+
+                    <label class="verify-box" for="notRobot">
+                        <input id="notRobot" type="checkbox" required>
+                        <span>Tôi xác nhận không phải robot</span>
+                    </label>
+                </form>
+            </div>
+        </section>
+
+        <div id="serviceModal" class="modal" role="dialog" aria-modal="true"
+             aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-content service-modal-content">
+                <button class="close-btn" type="button" aria-label="Đóng">&times;</button>
+                <div id="vehiclePhotoSpin" class="vehicle-viewer" tabindex="0"
+                     role="group" aria-label="Ảnh các góc của phương tiện">
+                    <img id="modalImg" src="" alt="" draggable="false">
+                    <span id="photoFrameCount" class="photo-frame-count" aria-live="polite"></span>
+                    <a id="photoCredit" class="photo-credit" href="#" target="_blank" rel="noopener noreferrer"></a>
+                    <div class="viewer-controls" aria-label="Điều khiển góc nhìn">
+                        <button type="button" data-viewer-step="-1" title="Ảnh trước" aria-label="Ảnh trước">←</button>
+                        <button type="button" data-viewer-reset title="Về góc đầu tiên" aria-label="Về góc đầu tiên">↺</button>
+                        <button type="button" data-viewer-step="1" title="Ảnh tiếp theo" aria-label="Ảnh tiếp theo">→</button>
+                    </div>
+                </div>
+                <div class="modal-copy">
+                    <p class="eyebrow">Thông tin phương tiện</p>
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalShortDesc" class="short-desc"></p>
+                    <p id="modalLongDesc" class="long-desc"></p>
+                    <a class="modal-booking-link" href="#booking">Trải nghiệm ngay</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="loginModal" class="modal" role="dialog" aria-modal="true"
+             aria-labelledby="loginTitle" aria-hidden="true">
+            <div class="modal-content login-content">
+                <button id="closeLoginModal" class="close-btn" type="button" aria-label="Đóng">&times;</button>
+                <p class="eyebrow">Chào mừng trở lại</p>
+                <h2 id="loginTitle">Đăng nhập tài khoản</h2>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input id="loginEmail" name="email" type="email"
+                               autocomplete="email" placeholder="Nhập email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Mật khẩu</label>
+                        <input id="loginPassword" name="password" type="password"
+                               autocomplete="current-password" placeholder="Nhập mật khẩu" required>
+                    </div>
+
+                    <button class="btn-submit" type="submit">Đăng nhập</button>
+                    <p class="login-note">Giao diện minh họa, chưa kết nối xác thực tài khoản.</p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 SmartMove. Nhóm Di Chuyển Thông Minh.</p>
+    </footer>
+</body>
+</html>
