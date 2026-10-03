@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tìm hiểu đội ngũ phát triển SmartMove.">
+    <title>Thành Viên - SmartMove</title>
+    <link rel="stylesheet" href="cuoiky.css">
+    <script src="cuoiky.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">Smart<span>Move</span></a>
+        <nav aria-label="Điều hướng chính">
+            <ul class="menu">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="cuoiky3.html">Đặt Xe</a></li>
+                <li><a href="cuoiky1.html" class="active" aria-current="page">Thành Viên</a></li>
+                <li><a href="cuoiky2.html">Liên Hệ</a></li>
+                <li><button id="openLoginModal" class="login-nav-button" type="button">Đăng nhập</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="team-page-wrap">
+        <div class="team-ambient-glow glow-team-1" aria-hidden="true"></div>
+        <div class="team-ambient-glow glow-team-2" aria-hidden="true"></div>
+
+        <section class="team-wrapper" aria-labelledby="teamHeading">
+            <div class="team-header-box">
+                <span class="team-badge">Đồ Án Cuối Kỳ · Lập Trình Web</span>
+                <h1 id="teamHeading" class="team-main-title">Đội Ngũ Phát Triển</h1>
+                <p class="team-subtitle">Dự án Website Dịch Vụ Di Chuyển Xanh Thông Minh SmartMove</p>
+            </div>
+
+            <div class="team-grid" aria-label="Danh sách thành viên">
+                <article class="team-card">
+                    <div class="avatar-wrap">
+                        <img src="media/1791027599642_788978932788723373_7803180202880868628_556c7743556f1341e9b577cc15afe966.jpg" alt="Ảnh đại diện Hà Mạnh Tiến">
+                        <span class="role-badge">Trưởng Nhóm</span>
+                    </div>
+                    <h2>Hà Mạnh Tiến</h2>
+                    <p class="student-id"><strong>Mã SV:</strong> 25004636</p>
+                    <div class="info-block task-block">
+                        <strong>Công việc:</strong>
+                        <p>Code HTML, hoàn thiện báo cáo, chỉnh sửa bổ sung dự án</p>
+                    </div>
+                    <div class="info-block">
+                        <strong>Sở thích:</strong>
+                        <p>Lập trình Web, công nghệ xe điện, thể thao</p>
+                    </div>
+                </article>
+
+                <article class="team-card">
+                    <div class="avatar-wrap">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Ảnh đại diện Nguyễn Hồng Phúc">
+                        <span class="role-badge role-member">Thành Viên</span>
+                    </div>
+                    <h2>Nguyễn Hồng Phúc</h2>
+                    <p class="student-id"><strong>Mã SV:</strong> 25004455</p>
+                    <div class="info-block task-block">
+                        <strong>Nhiệm vụ:</strong>
+                        <p>Thiết kế CSS và kiểm duyệt dự án</p>
+                    </div>
+                    <div class="info-block">
+                        <strong>Sở thích:</strong>
+                        <p>Thiết kế UI/UX, du lịch, đọc sách công nghệ</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <div id="loginModal" class="modal" role="dialog" aria-modal="true"
+             aria-labelledby="loginTitle" aria-hidden="true">
+            <div class="modal-content login-content">
+                <button id="closeLoginModal" class="close-btn" type="button" aria-label="Đóng">&times;</button>
+                
+                <div class="auth-tabs" role="tablist" aria-label="Chuyển đổi đăng nhập và đăng ký">
+                    <button id="tabLoginBtn" class="auth-tab active" type="button" role="tab" aria-selected="true" aria-controls="loginPanel">Đăng Nhập</button>
+                    <button id="tabRegisterBtn" class="auth-tab" type="button" role="tab" aria-selected="false" aria-controls="registerPanel">Đăng Ký</button>
+                </div>
+
+                <!-- Panel Đăng Nhập -->
+                <div id="loginPanel" class="auth-panel active" role="tabpanel" aria-labelledby="tabLoginBtn">
+                    <p class="eyebrow">Chào mừng trở lại</p>
+                    <h2 id="loginTitle">Đăng nhập tài khoản</h2>
+
+                    <form id="loginForm" novalidate>
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input id="loginEmail" name="email" type="email"
+                                   autocomplete="email" placeholder="Nhập email của bạn" required>
+                            <span id="loginEmailError" class="auth-error-msg" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginPassword">Mật khẩu</label>
+                            <input id="loginPassword" name="password" type="password"
+                                   autocomplete="current-password" placeholder="Nhập mật khẩu (tối thiểu 6 ký tự)" required minlength="6">
+                            <span id="loginPassError" class="auth-error-msg" aria-live="polite"></span>
+                        </div>
+
+                        <p id="loginStatus" class="auth-status" aria-live="polite"></p>
+
+                        <button class="btn-submit" type="submit">Đăng nhập</button>
+                        <p class="auth-switch">Chưa có tài khoản? <button type="button" class="btn-text-link" id="toRegisterLink">Đăng ký ngay</button></p>
+                    </form>
+                </div>
+
+                <!-- Panel Đăng Ký (Theo Case 2.2.4) -->
+                <div id="registerPanel" class="auth-panel" role="tabpanel" aria-labelledby="tabRegisterBtn" hidden>
+                    <p class="eyebrow">Thành viên SmartMove</p>
+                    <h2 id="registerTitle">Đăng ký tài khoản</h2>
+
+                    <form id="registerForm" novalidate>
+                        <div class="form-group">
+                            <label for="regFullname">Họ và tên</label>
+                            <input id="regFullname" name="fullname" type="text"
+                                   autocomplete="name" placeholder="Ví dụ: Nguyễn Văn A" required>
+                            <span id="regNameError" class="auth-error-msg" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="regPhone">Số điện thoại</label>
+                            <input id="regPhone" name="phone" type="tel" inputmode="numeric"
+                                   autocomplete="tel" placeholder="10 chữ số, bắt đầu bằng số 0" required>
+                            <span id="regPhoneError" class="auth-error-msg" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="regEmail">Email</label>
+                            <input id="regEmail" name="email" type="email"
+                                   autocomplete="email" placeholder="name@example.com" required>
+                            <span id="regEmailError" class="auth-error-msg" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="regPassword">Mật khẩu</label>
+                            <input id="regPassword" name="password" type="password"
+                                   autocomplete="new-password" placeholder="Tối thiểu 6 ký tự" required minlength="6">
+                            <span id="regPassError" class="auth-error-msg" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="regConfirmPassword">Xác nhận mật khẩu</label>
+                            <input id="regConfirmPassword" name="confirmPassword" type="password"
+                                   autocomplete="new-password" placeholder="Nhập lại mật khẩu" required>
+                            <span id="regConfirmError" class="auth-error-msg" aria-live="polite"></span>
+                        </div>
+
+                        <p id="registerStatus" class="auth-status" aria-live="polite"></p>
+
+                        <button class="btn-submit" type="submit">Đăng ký tài khoản</button>
+                        <p class="auth-switch">Đã có tài khoản? <button type="button" class="btn-text-link" id="toLoginLink">Đăng nhập ngay</button></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 SmartMove. Nhóm Di Chuyển Thông Minh.</p>
+    </footer>
+</body>
+</html>
